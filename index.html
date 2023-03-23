@@ -11,72 +11,19 @@
     <title>Rock Paper Scissors</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-    <script>
-        function getComputerChoice() {
-            let number = Math.random();
-            if (number < 0.33) return 'rock';
-            else if (number <= 0.66) return 'paper';
-            else return 'scissors';
-        }
-
-        function playRound(playerSelection, computerSelection) {
-            playerSelection = playerSelection.toLowerCase();
-            if (playerSelection === 'rock') {
-                if (computerSelection === 'rock') return 2;
-                else if (computerSelection === 'paper') return 0;
-                else return 1;
-            }
-            else if (playerSelection === 'paper'){
-                if (computerSelection === 'paper') return 2;
-                else if (computerSelection === 'scissors') return 0
-                else return 1;
-            }
-            else if (playerSelection === 'scissors'){
-                if (computerSelection === 'scissors') return 2;
-                else if (computerSelection === 'rock') return 0;
-                else return 1;
-            }
-        }
-
-        function game(){
-            let playerScore = 0;
-            let computerScore = 0;
-            let computerChoice;
-            let playerChoice;
-            for (let i = 0; i < 5; i++) {
-                computerChoice = getComputerChoice();
-                playerChoice = prompt('Enter your choice (Rock, Paper or Scissors)').toLowerCase();
-                let result = playRound(playerChoice, computerChoice);
-                if (result === 0){
-                    computerScore++;
-                    console.log(`You lose! ${computerChoice} beats ${playerChoice}`);
-                }
-                else if (result === 1){
-                    playerScore++;
-                    console.log(`You win! ${playerChoice} beats ${computerChoice}`);
-                }
-                else {
-                    console.log ("It's a tie! No one gets a point");
-                }
-            }
-            if (playerScore > computerScore){
-                console.log(`You win! Player score: ${playerScore}. Computer score: ${computerScore}`);
-            }
-            else if (playerScore < computerScore){
-                console.log(`You lose! Player score: ${playerScore}. Computer score: ${computerScore}`);
-            }
-            else {
-                console.log(`It's a tie! Player score: ${playerScore}. Computer score: ${computerScore}`);
-            }
-        }
-    </script>
+    <h1>Rock - Paper - Scissors Game</h1>
+    <div class="btn-container">
+        <button class="btn selection">Rock</button>
+        <button class="btn selection">Paper</button>
+        <button class="btn selection">Scissors</button>
+    </div>
+    <p id="result"></p>
+    <p id="scores"></p>
+    <script src="gamelogic.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+}
+.btn.selection{
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.btn.selection:hover{
+    border-color:red;
+}
+
+.btn.selection:active{
+    background-color: lightcoral;
+}
